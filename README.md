@@ -13,8 +13,8 @@ Use whatever means are appropriate to get your murmur.conf, ssl certificate file
 Finally, fix the file permissions inside the container:
 
     sudo docker run --rm --volumes-from=mumble-data --user=root koinu/mumble-server chown -R mumble-server:mumble-server /murmur
-    sudo docker run --rm --volumes-from=mumble-data --user=root koinu/mumble-server chmod -R og-rwx mumble-server:mumble-server /murmur
+    sudo docker run --rm --volumes-from=mumble-data --user=root koinu/mumble-server chmod -R og-rwx /murmur
 
 ### Running Murmur
 
-    sudo docker run --name=mumble --publish-all=true --volumes-from=mumble-data koinu/mumble-server
+    sudo docker run --name=mumble --detach --publish=64738:64738 --publish=64738:64738/udp --volumes-from=mumble-data --restart=always koinu/mumble-server
