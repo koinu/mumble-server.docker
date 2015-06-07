@@ -13,4 +13,4 @@ VOLUME /murmur
 
 EXPOSE 64738/tcp 64738/udp
 
-CMD murmurd -fg -ini /murmur/murmur.conf
+CMD ["murmurd", "-fg", "-ini", "/murmur/murmur.conf"]
